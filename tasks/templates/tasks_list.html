@@ -22,7 +22,7 @@
                     <td>{% if t.is_completed %} OK {% else %}—{% endif %}</td>
                     <td>{{t.created_at|date:"Y-m-d H:i"}}</td>
                     <td>
-                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'task_update' t.pk}">Edit</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'task_update' t.pk%}">Edit</a>
                         <a class="btn btn-sm btn-outline-danger" href="{% url 'task_delete' t.pk %}">Delete</a>
                     </td>
                 </tr>
