@@ -9,7 +9,7 @@ def task_list(request):
     return render(request, "tasks_list.html",{"tasks":tasks})
 
 def task_detail(request, pk):
-    task = get_object_or_404(task,pk=pk)
+    task = get_object_or_404(Task,pk=pk)
     return render(request, "task_detail.html", {"task":task})
 
 def task_create(request):
@@ -19,7 +19,7 @@ def task_create(request):
             task = form.save()
             return redirect("task_detail", pk=task.pk)
     else:
-        formm = TaskForm()
+        form = TaskForm()
     return render(request, "task_form.html",{"form":form})
 
 def task_update(request, pk):
