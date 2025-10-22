@@ -22,7 +22,6 @@ body {
 }
 
 
-/* Botón primario */
 .button.default, .submit-row input.default {
   background: #fd0d0d;
   border-color: #f83fa2;
