@@ -17,7 +17,7 @@
             <tbody>
                 {% for t in tasks %}
                 <tr>
-                    <td><a href="{% url 'task_detail' t.pk}">{{t.title}}</a></td>
+                    <td><a href="{% url 'task_detail' t.pk %}">{{ t.title }}</a></td>
                     <td>{{t.get_priority_display }}</td>
                     <td>{% if t.is_completed %} OK {% else %}—{% endif %}</td>
                     <td>{{t.created_at|date:"Y-m-d H:i"}}</td>
