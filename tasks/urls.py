@@ -14,4 +14,5 @@ urlpatterns = [
     path("tasks/<int:pk>/delete/", views.task_delete, name = "task_delete"),
 
     path("api/", include(router.urls)),
+    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider'))
 ]
