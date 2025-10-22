@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}Task Tracker Admin{% endblock %}
+
+{% block branding %}
+  <a class="brand" href="{% url 'admin:index' %}">
+    <img src="{% static 'img/logo.jpg' %}" alt="Task Tracker" height="28" style="vertical-align:middle;margin-right:.5rem;">
+    <span>Task Tracker Admin</span>
+  </a>
+{% endblock %}
+
+{% block extrastyle %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+{% endblock %}
