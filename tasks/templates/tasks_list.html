@@ -3,6 +3,30 @@
 <h1 class="h3 mb-3">Tasks</h1>
 
 {% if tasks %}
+<div class="mb-3" >
+  <form method="get" class="form-inline">
+    <div class="row g-2">
+      <div class="col-md-4">
+        <input type="text" name="search" class="form-control" placeholder="Search by Title..." value="{{ search_query }}">
+      </div>
+      <div class="col-md-3">
+        <select name="priority" class="form-select">
+          <option value="">-- Filter by Priority --</option>
+          <option value="low" {% if priority_filter == 'low' %}selected{% endif %}>Baja</option>
+          <option value="medium" {% if priority_filter == 'medium' %}selected{% endif %}>Media</option>
+          <option value="high" {% if priority_filter == 'high' %}selected{% endif %}>Alta</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+      </div>
+      <div class="col-md-2">
+        <a href="{% url 'task_list' %}" class="btn btn-secondary w-100">Limpiar</a>
+      </div>
+    </div>
+  </form>
+</div>
+
     <div class="table-responsive">
         <table class="table table-striped aling-middle">
             <thead>

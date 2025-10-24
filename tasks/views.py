@@ -5,8 +5,24 @@ from .forms import TaskForm
 
 
 def task_list(request):
-    tasks = Task.objects.order_by("-created_at") #el - es ordenado por fecha de creación (de la reciente a la antigua)#
-    return render(request, "tasks_list.html",{"tasks":tasks})
+    tasks = Task.objects.all().order_by('-created_at')
+
+    # Capturar filtros de la URL
+    search_query = request.GET.get('search', '')
+    priority_filter = request.GET.get('priority', '')
+
+    if search_query:
+        tasks = tasks.filter(title__icontains=search_query)
+
+    if priority_filter:
+        tasks = tasks.filter(priority=priority_filter)
+
+    context = {
+        'tasks': tasks,
+        'search_query': search_query,
+        'priority_filter': priority_filter,
+    }
+    return render(request, 'tasks_list.html', context)
 
 def task_detail(request, pk):
     task = get_object_or_404(Task,pk=pk)
